@@ -1,0 +1,27 @@
+// Not a module, so not exporting.
+(function (window) {
+    'use strict';
+
+    /**
+     * Sets up a brand new Todo list.
+     *
+     * @param {string} name The name of your new to do list.
+     */
+    function Todo(name) {
+        console.log("New application: '" + name + "'!");
+    }
+
+    var todoApp = new Todo('VanillaToDo');
+
+    /**
+     * Render the view when the window loads.
+     *
+     * @param {Event} e The Event object
+     */
+    function render(e) {
+        console.log("Render application");
+    }
+
+    window.addEventListener('load', render);
+
+})(window);
