@@ -1,0 +1,22 @@
+{
+  "name": "vanillajs",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Mike McMann <mmcmann2@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/mmcmann/todo-vanillajs",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "respond": "^1.4.2"
+  }
+}
