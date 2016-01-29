@@ -1,5 +1,6 @@
+/* globals window */
 // Not a module, so not exporting.
-(function (window) {
+(function (win) {
     'use strict';
 
     /**
@@ -11,7 +12,7 @@
         console.log("New application: '" + name + "'!");
     }
 
-    window.todoApp = new Todo('VanillaToDo');
+    win.todoApp = new Todo('VanillaToDo');
 
     /**
      * Render the view when the window loads.
@@ -19,9 +20,9 @@
      * @param {Event} e The Event object
      */
     function render(e) {
-        console.log("Render application");
+        console.log(e + "; Render application");
     }
 
-    window.addEventListener('load', render);
+    win.addEventListener('load', render);
 
-})(window);
+}(window));

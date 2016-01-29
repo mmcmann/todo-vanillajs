@@ -1,8 +1,10 @@
 {
   "private": true,
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
-    "jasmine-core": "^2.0.0"
+    "gulp": "^3.9.0",
+    "gulp-jslint": "^0.2.2",
+    "jasmine-core": "^2.0.0",
+    "jslint": "^0.9.6"
   }
 }
