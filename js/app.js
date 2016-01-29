@@ -11,7 +11,7 @@
         console.log("New application: '" + name + "'!");
     }
 
-    var todoApp = new Todo('VanillaToDo');
+    window.todoApp = new Todo('VanillaToDo');
 
     /**
      * Render the view when the window loads.
