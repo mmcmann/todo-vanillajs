@@ -6,7 +6,7 @@ var config = {
 };
 
 // build the main source into the min file
-gulp.task('default', function () {
+gulp.task('lint', function () {
     return gulp.src(config.jsFiles)
 
         // pass your directives
