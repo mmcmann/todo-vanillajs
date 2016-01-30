@@ -1,17 +1,19 @@
 // Avoid `console` errors in browsers that lack a console.
 (function () {
     'use strict';
-    var method, noop = function () {};
-    var methods = [
-        'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
-        'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
-        'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',
-        'timeline', 'timelineEnd', 'timeStamp', 'trace', 'warn'
-    ];
-    var length = methods.length;
-    var console = (window.console = window.console || {});
+    var method,
+        noop = function () { return; },
+        methods = [
+            'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
+            'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
+            'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',
+            'timeline', 'timelineEnd', 'timeStamp', 'trace', 'warn'
+        ],
+        length = methods.length,
+        console = (typeof window.console === "object") ? window.console : {};
 
-    while (length--) {
+    while (length > 0) {
+        length -= 1;
         method = methods[length];
 
         // Only stub undefined methods.
@@ -19,6 +21,6 @@
             console[method] = noop;
         }
     }
-} ());
+}());
 
 // Place any jQuery/helper plugins in here.
