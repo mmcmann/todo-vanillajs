@@ -1,4 +1,3 @@
-/* globals window */
 // Not a module, so not exporting.
 (function (window) {
     'use strict';
@@ -10,6 +9,7 @@
      */
     function Todo(name) {
         console.log("New application: '" + name + "'!");
+        this.version = "0.0.1";
     }
 
     window.todoApp = new Todo('VanillaToDo');
@@ -20,7 +20,8 @@
      * @param {Event} e The Event object
      */
     function render(e) {
-        console.log(e + "; Render application");
+        console.log("Context: " + e.target);
+        console.log("Render application");
     }
 
     window.addEventListener('load', render);

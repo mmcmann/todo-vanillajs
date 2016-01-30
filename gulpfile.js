@@ -2,7 +2,7 @@ var gulp   = require('gulp');
 var jslint = require('gulp-jslint');
 
 var config = {
-    jsFiles: ['js/**/*.js'],
+    jsFiles: ['js/**/*.js', 'test/**/*[sS]pec.js'],
 };
 
 // build the main source into the min file
@@ -17,6 +17,7 @@ gulp.task('lint', function () {
             // JSLint documentation.
             node: true,
             browser: true,
+            devel: true,
             // nomen: true,
 
             // you can also set global
