@@ -14,9 +14,9 @@
         function TodoApplication(name) {
             console.info("New application: '" + name + "'!");
             this.version = "0.0.1";
-            this.Model = new app.Model();
-            this.View = new app.View();
-            this.Controller = new app.Controller();
+            this.model = new app.Model();
+            this.view = new app.View();
+            this.controller = new app.Controller(this.model, this.view);
         }
 
         function init() {
