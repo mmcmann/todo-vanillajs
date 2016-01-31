@@ -9,6 +9,7 @@
      * @param {object} view The view instance
      */
     function Controller(model, view) {
+        console.log("Attached Controller");
         this.model = model;
         this.view = view;
     }

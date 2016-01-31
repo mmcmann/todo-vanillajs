@@ -1,9 +1,13 @@
 // Not a module, so not exporting.
-(function (window, app) {
+(function (window) {
     'use strict';
 
     var TodoApp = (function () {
-        var instance = null;
+        var instance = null,
+            model = (window.app.Model === undefined) ? {} : new window.app.Model(),
+            view = (window.app.View === undefined) ? {} : new window.app.View(),
+            controller = (window.app.Controller === undefined) ? {} : new window.app.Controller(model, view),
+            dependencies = { model: model, view: view, controller: controller };
 
         /**
          * Constructor
@@ -13,11 +17,18 @@
          */
         function TodoApplication(name) {
             console.info("New application: '" + name + "'!");
-            this.version = "0.0.1";
-            this.model = new app.Model();
-            this.view = new app.View();
-            this.controller = new app.Controller(this.model, this.view);
+            this.version = "0.0.2";
         }
+
+        TodoApplication.prototype.inject = function (object) {
+            var key, element;
+            for (key in object) {
+                if (object.hasOwnProperty(key)) {
+                    element = object[key];
+                    this[key] = element;
+                }
+            }
+        };
 
         function init() {
             var object = new TodoApplication("Vanilla JS To Do List Application");
@@ -28,13 +39,14 @@
             init: function () {
                 if (!instance) {
                     instance = init();
+                    instance.inject(dependencies);
                 }
                 return instance;
             }
         };
     }());
 
-    window.todoApp = TodoApp.init();
+    window.app = TodoApp.init();
 
     /**
      * Render the view when the window loads.
@@ -49,4 +61,4 @@
 
     window.addEventListener('load', render);
 
-}(this, window.app || {}));
+}(this));
