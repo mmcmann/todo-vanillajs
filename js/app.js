@@ -49,4 +49,4 @@
 
     window.addEventListener('load', render);
 
-}(this, window.todoApp || {}));
+}(this, window.app || {}));

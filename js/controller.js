@@ -14,6 +14,6 @@
     }
 
     // Export to window
-    window.app = window.todoApp || {};
+    window.app = window.app || {};
     window.app.Controller = Controller;
 }(this));
