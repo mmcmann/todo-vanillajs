@@ -18,21 +18,6 @@
             this.version = "0.0.2";
         }
 
-        /**
-         * Add necessary dependencies
-         *
-         * @param {object} object Object of dependencies to inject.
-         */
-        TodoApplication.prototype.inject = function (object) {
-            var key, element;
-            for (key in object) {
-                if (object.hasOwnProperty(key)) {
-                    element = object[key];
-                    this[key] = element;
-                }
-            }
-        };
-
         function init() {
             var object = new TodoApplication("Vanilla JS To Do List Application");
             return object;
@@ -44,6 +29,20 @@
                     instance = init();
                 }
                 return instance;
+            },
+            /**
+             * Add necessary dependencies
+             *
+            * @param {object} object Object of dependencies to inject.
+            */
+            inject: function (object) {
+                var key, element;
+                for (key in object) {
+                    if (object.hasOwnProperty(key)) {
+                        element = object[key];
+                        this[key] = element;
+                    }
+                }
             }
         };
     }());
