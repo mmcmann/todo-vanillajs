@@ -7,6 +7,7 @@
      * @constructor
      */
     function Model() {
+        this.name = "Model";
         return;
     }
 

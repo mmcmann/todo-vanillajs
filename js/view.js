@@ -15,6 +15,7 @@
      * @constructor
      */
     function View() {
+        this.name = "View";
         return;
     }
 

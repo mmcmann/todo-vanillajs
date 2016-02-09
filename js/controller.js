@@ -10,6 +10,7 @@
      */
     function Controller(model, view) {
         console.log("Attached Controller");
+        this.name = "Controller";
         this.model = model;
         this.view = view;
     }

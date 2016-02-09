@@ -12,6 +12,7 @@
 
     <!-- include spec files here... -->
     <script id="test-spec" src="app.spec.js"></script>
+    <script id="test-spec" src="controller.spec.js"></script>
 
     <script>
         // Bootstrap app data
@@ -20,11 +21,13 @@
 
     <script src="../bower_components/jquery/dist/jquery.min.js"></script>
     <script id="test-file" src="../js/app.js"></script>
+    <script id="test-file" src="../js/controller.js"></script>
 </head>
 
 <body>
     <p>Choose a file to test...</p>
     <select name="chooseFile" id="choose-file">
+        <option value="">All</option>
         <option value="app">app.js</option>
         <option value="controller">controller.js</option>
         <option value="view">view.js</option>
@@ -32,8 +35,24 @@
     </select>
 
     <script type="text/javascript">
-        $("#choose-file").change(function() {
-            window.loadJasmine();
+        $(document).ready(function() {
+            var re = /\?spec=(.*)/;
+            var qs = window.location.search;
+            var file = qs.replace(re, "$1");
+            if (qs !== "") {
+                var value = file.charAt(0).toLowerCase() + file.slice(1);
+                $('#choose-file option[value="' + value + '"]').prop('selected', true);
+                // $('#test-spec').prop('src', value + ".spec.js");
+                // $('#test-file').prop('src', "../js/" + value + ".js");
+                //window.loadJasmine();
+            }
+        });
+        $("#choose-file").on('change', function() {
+            var srch = "";
+            if (this.value !== "")
+                srch = "?spec=" + this.value.charAt(0).toUpperCase() + this.value.slice(1);
+            // window.location.search = srch;
+            window.location.assign(window.location.pathname + srch);
         });
     </script>
 </body>
